@@ -15,5 +15,8 @@
   "license": "ISC",
   "devDependencies": {
     "vite": "^7.1.7"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
   }
 }
