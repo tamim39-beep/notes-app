@@ -1,4 +1,4 @@
-import myaql2 from "mysql2/promise";
+import mysql2 from "mysql2/promise";
 
 const pool = mysql2.createPool({
   host: "localhost",
@@ -7,7 +7,7 @@ const pool = mysql2.createPool({
   database: "notes_app",
 });
 
-const testConnection = async () => {
+export const testConnection = async () => {
   try {
     const connection = await pool.getConnection();
     console.log("Database connected successfully.");
