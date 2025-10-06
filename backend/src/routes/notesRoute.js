@@ -1,11 +1,19 @@
 import express from "express";
-import { getAllNotesHandlers } from "../handlers/notesHandler.js";
-import { addNoteHandler } from "../handlers/notesHandler.js";
-import { getNoteByIdHandler } from "../handlers/notesHandler.js";
+import {
+  deleteNoteByIdHandler,
+  getAllNotesHandlers,
+  updateNoteByIdHandler,
+  addNoteHandler,
+  getNoteByIdHandler,
+} from "../handlers/notesHandler.js";
+
 const noteRouter = express.Router();
 
-noteRouter.get("/notes", getAllNotesHandlers);
-noteRouter.post("/notes", addNoteHandler);
-noteRouter.get("/notes/:id", getNoteByIdHandler);
+// karena sudah diprefix "/notes" di server.js
+noteRouter.get("/", getAllNotesHandlers); // GET /notes
+noteRouter.post("/", addNoteHandler); // POST /notes
+noteRouter.get("/:id", getNoteByIdHandler); // GET /notes/:id
+noteRouter.put("/:id", updateNoteByIdHandler); // PUT /notes/:id
+noteRouter.delete("/:id", deleteNoteByIdHandler); // DELETE /notes/:id
 
 export default noteRouter;
