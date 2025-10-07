@@ -4,9 +4,11 @@ import { useEffect } from "react";
 function App() {
   const [notes, setNotes] = useState([]);
 
+  const baseUrl = "https://notes-app-api-one.vercel.app";
+
   const fetchNotes = async () => {
     try {
-      const res = await fetch("http://localhost:3000/notes");
+      const res = await fetch(`${baseUrl}/notes`);
 
       const result = await res.json();
 
@@ -22,7 +24,7 @@ function App() {
 
   const addNote = async (newTitle, newContent) => {
     try {
-      const res = await fetch("http://localhost:3000/notes", {
+      const res = await fetch(`${baseUrl}/notes`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -44,7 +46,7 @@ function App() {
 
   const handleupdateNote = async (id, updateTitle, updateContent) => {
     try {
-      const res = await fetch(`http://localhost:3000/notes/${id}`, {
+      const res = await fetch(`${baseUrl}/notes`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ title: updateTitle, content: updateContent }),
@@ -64,7 +66,7 @@ function App() {
 
   const handleDelete = async (id) => {
     try {
-      const res = await fetch(`http://localhost:3000/notes/${id}`, {
+      const res = await fetch(`${baseUrl}/notes`, {
         method: "DELETE",
       });
 
