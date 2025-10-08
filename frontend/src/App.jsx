@@ -131,8 +131,15 @@ export default App;
 const Navbar = () => {
   return (
     <nav className="w-full fixed top-0 flex justify-center bg-white shadow z-50">
-      <div className="flex justify-between px-5 py-5 container">
-        <img src="/santri.jpg" alt="Logo" className="h-8" />
+      <div className="flex justify-between items-center px-5 py-5 container">
+        <a
+          href="https://github.com/tamim39-beep"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-black hover:text-gray-300 transition text-2xl"
+        >
+          tammim.
+        </a>
       </div>
     </nav>
   );
